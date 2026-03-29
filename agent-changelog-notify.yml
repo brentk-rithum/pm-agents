@@ -1,0 +1,49 @@
+name: Agent Changelog - Flag for Power Automate
+
+on:
+  push:
+    paths:
+      - 'AGENT_CHANGELOG.md'
+
+  # Manual trigger for testing
+  workflow_dispatch:
+
+jobs:
+  flag-changelog-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Extract changed entries and write summary file
+        run: |
+          TODAY=$(date '+%Y-%m-%d')
+          AUTHOR=$(git log -1 --format='%an')
+          COMMIT_MSG=$(git log -1 --format='%s')
+
+          # Get only the added lines from the diff
+          NEW_ENTRIES=$(git diff HEAD~1 HEAD -- AGENT_CHANGELOG.md \
+            | grep '^+' | grep -v '^+++' | sed 's/^+//' )
+
+          # Write a plain-text summary file Power Automate can read via the GitHub API
+          cat > changelog-summary.txt << EOF
+          Date: $TODAY
+          Author: $AUTHOR
+          Commit: $COMMIT_MSG
+
+          New entries:
+          $NEW_ENTRIES
+          EOF
+
+          echo "Summary written."
+          cat changelog-summary.txt
+
+      - name: Upload summary as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog-summary-${{ github.run_id }}
+          path: changelog-summary.txt
+          retention-days: 7
