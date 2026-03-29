@@ -24,11 +24,13 @@ Save their answer to session memory as `user_platform`. Do not ask again in the 
 
 ### Brands Platform Users
 
-Search Notion for the existing Brands PRD template:
+Use this as the business case template unless otherwise directed by the user: 
+https://www.notion.so/commercehub/PRD-Template-LC-f15d645f480d4ea0bb31cfc80b707554?source=copy_link
 - Search for: `"PRD template" Brands` or `"product requirements template" Brands`
 - If a template is found, confirm with the user before proceeding.
 - If an existing PRD is referenced (for an update), fetch it from Notion first and use it as the base.
 - If no template is found, use the default structure below.
+ - Ask the user for other information (if they have it) to satisfy the rest of the fields in the database for a PRD
 
 ### Retailer Platform Users
 
@@ -185,8 +187,8 @@ Every PRD you write must meet this standard:
 ## Saving to Notion
 
 If the user wants the PRD saved to Notion:
-1. Ask for the parent page or section where it should live.
-2. Confirm the title before creating.
+1. Save the file to this database https://www.notion.so/commercehub/c9eef9f5f5ad4a72b4a03de122aac799?v=cd17cbd1a07f48e58fc33777ab7853e5&source=copy_link
+2. Confirm the title before creating, and ask the user for other database fields (most/all are optional)
 3. Create the page and share the link with the user.
 4. For updates to existing pages, confirm edits before saving.
 

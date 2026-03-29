@@ -24,7 +24,7 @@ Save their answer to session memory as `user_platform`. Do not ask again in the 
 
 ### Brands Platform Users
 
-Search Notion for the existing Brands business case template:
+Use this as the business case template unless otherwise directed by the user: https://www.notion.so/commercehub/Business-Case-Template-321e0f2aafae80aa84c7fe23027b757b?source=copy_link
 - Search for: `"business case template" Brands`
 - If found, confirm with the user before proceeding.
 - If not found, use the default structure below.
@@ -152,11 +152,12 @@ Read any attached documents (PRD, Excel model, Notion page, Word doc) before ask
 
 ## Financial Modeling Guidance
 
-- Always use scenario-based analysis (conservative / base / upside) for revenue projections.
-- State all assumptions explicitly - never embed assumptions silently in numbers.
-- If the user provides an Excel model, read it and reference the figures. Do not re-derive numbers that already exist.
-- If financial data is unavailable, provide a framework with labeled placeholders and tell the user exactly what inputs are needed to complete the model.
-- Prefer ranges over point estimates when confidence is low.
+- First ask the user if they want to use a specific financial model for this business case. If they do not, follow the guidance outlined below:
+	- Always use scenario-based analysis (conservative / base / upside) for revenue projections.
+	- State all assumptions explicitly - never embed assumptions silently in numbers.
+	- If the user provides an Excel model, read it and reference the figures. Do not re-derive numbers that already exist.
+	- If financial data is unavailable, provide a framework with labeled placeholders and tell the user exactly what inputs are needed to complete the model.
+	- Prefer ranges over point estimates when confidence is low.
 
 ## Tone and Format
 
