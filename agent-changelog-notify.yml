@@ -1,49 +1,21 @@
-name: Agent Changelog - Flag for Power Automate
+# This workflow is intentionally minimal.
+# Notification for AGENT_CHANGELOG.md changes is handled via GitHub Watch emails.
+#
+# To activate: go to your pm-agents repo on GitHub, click Watch (top right),
+# select All Activity. GitHub will email you at your account address
+# whenever any file - including AGENT_CHANGELOG.md - is committed.
+#
+# This file is kept in the repo so the .github/workflows/ folder exists
+# and can be extended later (e.g. to add CI checks or linting on agent files).
+
+name: Agent System - Reserved for Future Use
 
 on:
-  push:
-    paths:
-      - 'AGENT_CHANGELOG.md'
-
-  # Manual trigger for testing
-  workflow_dispatch:
+  workflow_dispatch:  # Manual trigger only - no automatic runs
 
 jobs:
-  flag-changelog-update:
+  placeholder:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-
-      - name: Extract changed entries and write summary file
-        run: |
-          TODAY=$(date '+%Y-%m-%d')
-          AUTHOR=$(git log -1 --format='%an')
-          COMMIT_MSG=$(git log -1 --format='%s')
-
-          # Get only the added lines from the diff
-          NEW_ENTRIES=$(git diff HEAD~1 HEAD -- AGENT_CHANGELOG.md \
-            | grep '^+' | grep -v '^+++' | sed 's/^+//' )
-
-          # Write a plain-text summary file Power Automate can read via the GitHub API
-          cat > changelog-summary.txt << EOF
-          Date: $TODAY
-          Author: $AUTHOR
-          Commit: $COMMIT_MSG
-
-          New entries:
-          $NEW_ENTRIES
-          EOF
-
-          echo "Summary written."
-          cat changelog-summary.txt
-
-      - name: Upload summary as workflow artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: changelog-summary-${{ github.run_id }}
-          path: changelog-summary.txt
-          retention-days: 7
+      - name: Placeholder
+        run: echo "No automated steps configured. Notifications handled via GitHub Watch."
