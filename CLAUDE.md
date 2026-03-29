@@ -8,9 +8,18 @@ This is the shared agent configuration for the Rithum for Brands Product Managem
 
 ## Company and Platform Context
 
-**Company:** Rithum (formerly ChannelAdvisor for the Brands platform)
-**Platform:** Rithum for Brands
+**Company:** Rithum
+**Platforms:** Rithum for Brands (formerly ChannelAdvisor) | Rithum for Retailers (formerly CommerceHub)
 **Team:** Senior Product Management
+
+### Platform Branching
+
+The `business-case` and `prd-writer` agents ask each user which platform they primarily work on at the start of their first session. This determines which Notion template is used:
+
+- **Brands Platform** - uses the established Brands templates in Notion
+- **Retailer Platform** - discovers available templates, asks which to use, learns the user's preference, and saves it for future use
+
+These agents use `memory: project` so platform preference and learned templates persist across Claude Code sessions. In the claude.ai Project, preferences reset each session.
 
 ### Areas of Responsibility
 
