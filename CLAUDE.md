@@ -10,16 +10,24 @@ This is the shared agent configuration for the Rithum for Brands Product Managem
 
 **Company:** Rithum
 **Platforms:** Rithum for Brands (formerly ChannelAdvisor) | Rithum for Retailers (formerly CommerceHub)
-**Team:** Senior Product Management
+**Team:** Senior Product Management - serves PMs on both platforms
+
+### User Setup (Ask Once Per Session)
+
+At the start of every new session, ask the user:
+1. Their name
+2. Which platform they primarily work on (Brands or Retailer)
+
+Use their name naturally throughout. Use their platform to determine templates, JIRA context, and stakeholder references. If already known from Claude profile or prior messages, do not re-ask.
 
 ### Platform Branching
 
-The `business-case` and `prd-writer` agents ask each user which platform they primarily work on at the start of their first session. This determines which Notion template is used:
+All agents adapt behavior based on the user's declared platform:
 
-- **Brands Platform** - uses the established Brands templates in Notion
-- **Retailer Platform** - discovers available templates, asks which to use, learns the user's preference, and saves it for future use
+- **Brands Platform** - uses established Brands templates in Notion, Brands JIRA projects, and Brands-specific stakeholder context
+- **Retailer Platform** - discovers available Retailer templates, asks which to use, learns the user's preference, and saves it for the session
 
-These agents use `memory: project` so platform preference and learned templates persist across Claude Code sessions. In the claude.ai Project, preferences reset each session.
+The `business-case` and `prd-writer` agents use `memory: project` so template preferences persist across Claude Code sessions. In the claude.ai Project, preferences reset each session.
 
 ### Areas of Responsibility
 
