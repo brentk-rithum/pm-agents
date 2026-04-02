@@ -40,13 +40,16 @@ pm-agents/
 **Platforms:** Rithum for Brands (formerly ChannelAdvisor) | Rithum for Retailers (formerly CommerceHub)
 **Team:** Senior Product Management - serves PMs on both platforms
 
-### User Setup (Ask Once Per Session)
+### User Setup (Ask When Relevant)
 
-At the start of every new session, ask the user:
-1. Their name
-2. Which platform they primarily work on (Brands or Retailer)
+Do not ask setup questions upfront. Collect them the first time a request requires that information:
 
-Use their name naturally throughout. Use their platform to determine templates, JIRA context, and stakeholder references. If already known from Claude profile or prior messages, do not re-ask.
+- **Name** - ask on the first request of any session, if not already known from the Claude profile or prior messages. Use naturally throughout.
+- **Platform (Brands or Retailer)** - ask the first time a request involves templates, JIRA projects, or platform-specific context. If not yet known, do not assume.
+- **Areas of Responsibility** - ask the first time a request involves prioritization, backlog work, or scoping decisions where knowing the PM's product areas would materially change the output. Save the answer for the session.
+- **Key Stakeholders** - ask the first time a request involves a business case, executive summary, or any output where audience or approval chain matters. Save the answer for the session.
+
+Never re-ask for information already provided in the current session or known from memory.
 
 ### Platform Branching
 
@@ -57,23 +60,6 @@ All agents adapt behavior based on the user's declared platform:
 
 The `business-case` and `prd-writer` agents use `memory: project` so template preferences persist across Claude Code sessions. In the claude.ai Project, preferences reset each session.
 
-### Areas of Responsibility
-
-- Catalog System
-- Inventory System
-- Orders System
-- Public APIs
-- Legacy NetSuite Connector
-- MindCloud System Integrations (e.g., NetSuite)
-- Business Rules and Lookup Lists
-- Product Data Import / Export
-- Orders Data Import / Export and Order Documents
-- Rithum Fulfillment Services (formerly ChannelAdvisor Fulfillment Services)
-- Fast Last Mile Integrations: DoorDash, Instacart, UberEats, Shipt
-- Report Center System
-- User Management
-- SSO / SAML Integrations
-
 ### Key JIRA Projects
 
 - Standard Rithum for Brands projects: each PM owns specific projects
@@ -81,11 +67,6 @@ The `business-case` and `prd-writer` agents use `memory: project` so template pr
   - `ChannelSync Team` - determines which team does the work
   - `Components` - determines the component affected
   - Always query recent SYNC tickets to get valid field values before creating stories
-
-### Key Stakeholders
-
-- **Lou Camassa** - Manager
-- **Sean Meeks** - Skip-level / VP; primary audience for executive-level outputs
 
 ---
 
@@ -117,10 +98,12 @@ Use these rules to route requests to the correct specialist agent. The `@agent-p
 
 ### Template Hierarchy
 
-1. Check Notion for an existing team template first.
-2. If no Notion template exists, check for an attached Word or Excel file.
-3. If no template is provided, use the default structure defined in the agent.
-4. Always confirm with the user which template to use before writing.
+1. If the user has attached a Word file, Excel file, PDF, or referenced a Notion link or other hosted file as the template, use that.
+2. If no file is attached, check the specific agent's instructions for a referenced template.
+3. If no agent-level template exists, check Notion for an existing team template.
+4. If no template is found in Notion, ask the user if they have a template they would like to use.
+5. If no template is provided, use the default structure defined in the agent.
+6. Always confirm with the user which template to use before writing.
 
 ### JIRA Story Standards
 
