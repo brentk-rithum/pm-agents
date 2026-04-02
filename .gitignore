@@ -1,2 +1,4 @@
 # Claude Code local settings - machine-specific, not shared
 .claude/settings.local.json
+node_modules/
+create-setup-guide.mjs
