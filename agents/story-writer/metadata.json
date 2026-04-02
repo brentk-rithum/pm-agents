@@ -1,0 +1,23 @@
+{
+  "name": "story-writer",
+  "version": "1.0.0",
+  "description": "Writes engineering stories for JIRA. Produces well-structured stories with Summary, Description, and Acceptance Criteria. Handles standard Rithum project types and the ChannelSync (SYNC) project which requires ChannelSync Team and Components fields. Invoke when a PM needs to create one or multiple JIRA stories from a requirement, PRD, epic, or idea.",
+  "model": "sonnet",
+  "tools": [
+    "Read", "Grep", "Glob",
+    "mcp__atlassian__searchJiraIssuesUsingJql",
+    "mcp__atlassian__getJiraIssue",
+    "mcp__atlassian__createJiraIssue",
+    "mcp__atlassian__getJiraProjectIssueTypesMetadata",
+    "mcp__atlassian__getJiraIssueTypeMetaWithFields",
+    "mcp__notion__notion-search",
+    "mcp__notion__notion-fetch"
+  ],
+  "dependencies": [
+    "shared/user-setup.md",
+    "shared/rithum-context.md",
+    "shared/jira-integration.md",
+    "shared/tone-and-style.md"
+  ],
+  "files": ["instructions.md", "jira-fields.md", "acceptance-criteria.md", "templates.md"]
+}

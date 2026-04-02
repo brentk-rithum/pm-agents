@@ -1,0 +1,9 @@
+{
+  "name": "agent-improver",
+  "version": "1.0.0",
+  "description": "Proposes and applies improvements to any agent or shared file in the Rithum PM Agent system. Monitors for gaps or format mismatches during sessions, and handles explicit user requests to update agents. Edits source files in agents/ and shared/ directories, then rebuilds .claude/agents/ files via the build script. Invoke when a user wants to improve, fix, or update any agent.",
+  "model": "sonnet",
+  "tools": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "dependencies": [],
+  "files": ["instructions.md"]
+}

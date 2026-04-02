@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/business-case/ | Rebuild: scripts/build-agents.sh business-case
 name: business-case
 description: Creates or updates business cases for product investments, new features, integrations, or strategic initiatives. Produces structured financial and strategic justification documents suitable for executive or ELT review. Invoke when a PM needs to justify an investment, model ROI, or build a case for prioritization at the leadership level.
 model: sonnet

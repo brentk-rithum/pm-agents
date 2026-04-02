@@ -1,0 +1,49 @@
+{
+  "mcp_servers": [
+    {
+      "name": "Atlassian",
+      "tool_prefix": "mcp__atlassian__",
+      "description": "JIRA issue search, creation, and updates; Confluence pages",
+      "tools": [
+        "searchJiraIssuesUsingJql",
+        "getJiraIssue",
+        "createJiraIssue",
+        "editJiraIssue",
+        "getJiraProjectIssueTypesMetadata",
+        "getJiraIssueTypeMetaWithFields",
+        "addCommentToJiraIssue",
+        "getVisibleJiraProjects",
+        "lookupJiraAccountId",
+        "getConfluencePage",
+        "createConfluencePage"
+      ],
+      "agents_using": [
+        "story-writer",
+        "backlog-organizer",
+        "priority-analyzer",
+        "idea-reviewer",
+        "business-case",
+        "prd-writer"
+      ]
+    },
+    {
+      "name": "Notion",
+      "tool_prefix": "mcp__notion__",
+      "description": "Page search, fetch, create, and update",
+      "tools": [
+        "notion-search",
+        "notion-fetch",
+        "notion-create-pages",
+        "notion-update-page"
+      ],
+      "agents_using": [
+        "business-case",
+        "prd-writer",
+        "story-writer",
+        "backlog-organizer",
+        "priority-analyzer",
+        "idea-reviewer"
+      ]
+    }
+  ]
+}

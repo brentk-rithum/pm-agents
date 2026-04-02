@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/backlog-organizer/ | Rebuild: scripts/build-agents.sh backlog-organizer
 name: backlog-organizer
 description: Organizes, cleans, and sequences a product backlog. Works with JIRA backlogs, Excel lists, Notion tables, or user-provided ticket lists. Invoke when a PM needs to triage, rank, or restructure a backlog - including pre-sprint grooming or roadmap sequencing.
 model: sonnet

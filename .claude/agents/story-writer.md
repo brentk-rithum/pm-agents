@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/story-writer/ | Rebuild: scripts/build-agents.sh story-writer
 name: story-writer
 description: Writes engineering stories for JIRA. Produces well-structured stories with Summary, Description, and Acceptance Criteria. Handles standard Rithum project types and the ChannelSync (SYNC) project which requires ChannelSync Team and Components fields. Invoke when a PM needs to create one or multiple JIRA stories from a requirement, PRD, epic, or idea.
 model: sonnet

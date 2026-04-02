@@ -4,6 +4,34 @@
 
 This is the shared agent configuration for the Rithum for Brands Product Management team. All agents in `.claude/agents/` are available to every PM on the team. This file loads automatically when Claude Code starts in this directory.
 
+## Repository Structure
+
+```
+pm-agents/
+├── .claude/agents/        # Runtime agent files (GENERATED - do not edit directly)
+├── agents/                # Modular source for each agent (edit these)
+│   └── <agent-name>/
+│       ├── metadata.json  # Name, version, tools, dependencies, file list
+│       ├── instructions.md
+│       ├── templates.md
+│       └── <other>.md
+├── shared/                # Content shared across multiple agents
+│   ├── user-setup.md
+│   ├── rithum-context.md
+│   ├── jira-integration.md
+│   ├── notion-integration.md
+│   ├── tone-and-style.md
+│   └── platforms.md
+├── config/
+│   ├── agent-registry.json  # Master agent list with metadata
+│   └── mcp-servers.json     # MCP server configuration reference
+└── scripts/
+    ├── build-agents.sh      # Assembles agents/ + shared/ → .claude/agents/
+    └── validate-agents.sh   # Validates metadata and source file consistency
+```
+
+**To edit an agent:** modify files in `agents/<name>/` or `shared/`, then run `bash scripts/build-agents.sh <agent-name>` to regenerate the runtime file. Or invoke `@agent-agent-improver` and it will handle the full workflow.
+
 ---
 
 ## Company and Platform Context
@@ -146,18 +174,26 @@ When a user asks how to improve an agent, suggest a change, or contribute a lear
 
 ### How It Works
 
-The `agent-improver` agent monitors all sessions and proposes updates to agent `.md` files when it detects gaps, format mismatches, or user corrections. It operates in three modes:
+The `agent-improver` agent monitors all sessions and proposes updates when it detects gaps, format mismatches, or user corrections. It operates in three modes:
 
 - **Fast Mode (default):** Output delivered, no improvement notes. Used when sessions run cleanly.
 - **Suggest Mode:** Output delivered first, then a brief improvement suggestion appended. Triggered only when a real gap was observed.
-- **Improve Mode:** User explicitly requests a change. Agent shows a diff and asks for confirmation before writing.
+- **Improve Mode:** User explicitly requests a change. Agent reads the source file, shows a preview, confirms, applies the edit, rebuilds the runtime file, and logs the change.
+
+### How Changes Are Applied
+
+1. `agent-improver` edits the relevant file in `agents/<name>/` or `shared/`
+2. Runs `scripts/build-agents.sh` to regenerate `.claude/agents/<name>.md`
+3. Appends an entry to `AGENT_CHANGELOG.md`
+
+No change is ever applied without explicit user confirmation.
 
 ### Rules
 
 - No change is ever applied without explicit user confirmation ("yes", "apply it", "go ahead").
 - Every applied change is logged to `AGENT_CHANGELOG.md` with full context.
-- Brent Haberlah is notified after every change for review and potential reversion.
-- Any user can approve a change. Any user can request a revert. Brent has final say.
+- Brent Kepler reviews all changes and has final say on reversions.
+- Any user can approve a change. Any user can request a revert.
 
 ### Requesting an Improvement
 
@@ -171,6 +207,6 @@ The agent-improver will handle it from there.
 ### Changelog and Reversion
 
 All changes are in `AGENT_CHANGELOG.md`. To revert a change:
-> "Revert the change to [agent-name].md from [date]"
+> "Revert the change to [agent-name] from [date]"
 
 The agent-improver will show you the before state and confirm before applying.

@@ -1,0 +1,9 @@
+{
+  "name": "pm-router",
+  "version": "1.0.0",
+  "description": "Orchestration agent for the Rithum PM team. Receives any product management request and routes it to the correct specialist agent. Invoke this agent first when the task is ambiguous or spans multiple workflows. Also handles requests that don't clearly map to a single agent.",
+  "model": "sonnet",
+  "tools": ["Read", "Grep"],
+  "dependencies": ["shared/user-setup.md"],
+  "files": ["instructions.md", "routing-rules.md"]
+}

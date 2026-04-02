@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/pm-router/ | Rebuild: scripts/build-agents.sh pm-router
 name: pm-router
 description: Orchestration agent for the Rithum PM team. Receives any product management request and routes it to the correct specialist agent. Invoke this agent first when the task is ambiguous or spans multiple workflows. Also handles requests that don't clearly map to a single agent.
 model: sonnet

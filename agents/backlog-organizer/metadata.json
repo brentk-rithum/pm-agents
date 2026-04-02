@@ -1,0 +1,20 @@
+{
+  "name": "backlog-organizer",
+  "version": "1.0.0",
+  "description": "Organizes, cleans, and sequences a product backlog. Works with JIRA backlogs, Excel lists, Notion tables, or user-provided ticket lists. Invoke when a PM needs to triage, rank, or restructure a backlog - including pre-sprint grooming or roadmap sequencing.",
+  "model": "sonnet",
+  "tools": [
+    "Read", "Grep", "Glob",
+    "mcp__atlassian__searchJiraIssuesUsingJql",
+    "mcp__atlassian__getJiraIssue",
+    "mcp__notion__notion-search",
+    "mcp__notion__notion-fetch"
+  ],
+  "dependencies": [
+    "shared/user-setup.md",
+    "shared/rithum-context.md",
+    "shared/jira-integration.md",
+    "shared/tone-and-style.md"
+  ],
+  "files": ["instructions.md", "triage-rules.md", "templates.md"]
+}

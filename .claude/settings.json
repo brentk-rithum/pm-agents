@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash scripts/build-agents.sh*)",
+      "Bash(bash scripts/validate-agents.sh*)",
+      "Bash(find . -not -path './.git/*' -not -path './.github/workflows/*' -type f -exec ls -lh {})"
+    ]
+  }
+}

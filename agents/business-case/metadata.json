@@ -1,0 +1,21 @@
+{
+  "name": "business-case",
+  "version": "1.0.0",
+  "description": "Creates or updates business cases for product investments, new features, integrations, or strategic initiatives. Produces structured financial and strategic justification documents suitable for executive or ELT review. Invoke when a PM needs to justify an investment, model ROI, or build a case for prioritization at the leadership level.",
+  "model": "sonnet",
+  "memory": "project",
+  "tools": [
+    "Read", "Grep", "Glob",
+    "mcp__atlassian__searchJiraIssuesUsingJql",
+    "mcp__atlassian__getJiraIssue",
+    "mcp__notion__notion-search",
+    "mcp__notion__notion-fetch"
+  ],
+  "dependencies": [
+    "shared/rithum-context.md",
+    "shared/notion-integration.md",
+    "shared/platforms.md",
+    "shared/tone-and-style.md"
+  ],
+  "files": ["instructions.md", "financial-model.md", "templates.md"]
+}

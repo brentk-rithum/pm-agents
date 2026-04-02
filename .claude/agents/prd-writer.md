@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/prd-writer/ | Rebuild: scripts/build-agents.sh prd-writer
 name: prd-writer
 description: Creates or updates Product Requirements Documents (PRDs). Pulls from Notion templates, existing PRDs, JIRA epics, business cases, or user-provided context. Produces structured, engineering-ready PRDs suitable for handoff to design and development. Invoke when a PM needs to write a new PRD or update an existing one.
 model: sonnet

@@ -1,0 +1,18 @@
+{
+  "name": "idea-reviewer",
+  "version": "1.0.0",
+  "description": "Evaluates new product ideas, feature requests, or enhancement proposals. Assesses feasibility, strategic fit, customer value, and effort before a PM invests in full business case or PRD work. Invoke when a PM or stakeholder has an idea they want pressure-tested or screened.",
+  "model": "sonnet",
+  "tools": [
+    "Read", "Grep", "Glob",
+    "mcp__atlassian__searchJiraIssuesUsingJql",
+    "mcp__notion__notion-search",
+    "mcp__notion__notion-fetch"
+  ],
+  "dependencies": [
+    "shared/user-setup.md",
+    "shared/rithum-context.md",
+    "shared/tone-and-style.md"
+  ],
+  "files": ["instructions.md", "scoring-criteria.md", "templates.md"]
+}

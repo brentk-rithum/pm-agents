@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-01",
+  "agents": [
+    {
+      "name": "pm-router",
+      "display_name": "PM Router",
+      "description": "Orchestration agent - routes requests to specialist agents",
+      "source_dir": "agents/pm-router",
+      "runtime_file": ".claude/agents/pm-router.md",
+      "status": "active"
+    },
+    {
+      "name": "priority-analyzer",
+      "display_name": "Priority Analyzer",
+      "description": "Analyzes and ranks priorities across product areas or backlogs",
+      "source_dir": "agents/priority-analyzer",
+      "runtime_file": ".claude/agents/priority-analyzer.md",
+      "status": "active"
+    },
+    {
+      "name": "backlog-organizer",
+      "display_name": "Backlog Organizer",
+      "description": "Organizes, cleans, and sequences product backlogs",
+      "source_dir": "agents/backlog-organizer",
+      "runtime_file": ".claude/agents/backlog-organizer.md",
+      "status": "active"
+    },
+    {
+      "name": "idea-reviewer",
+      "display_name": "Idea Reviewer",
+      "description": "Evaluates new product ideas, feature requests, and enhancements",
+      "source_dir": "agents/idea-reviewer",
+      "runtime_file": ".claude/agents/idea-reviewer.md",
+      "status": "active"
+    },
+    {
+      "name": "story-writer",
+      "display_name": "Story Writer",
+      "description": "Writes engineering stories for JIRA with full acceptance criteria",
+      "source_dir": "agents/story-writer",
+      "runtime_file": ".claude/agents/story-writer.md",
+      "status": "active"
+    },
+    {
+      "name": "business-case",
+      "display_name": "Business Case Writer",
+      "description": "Creates executive-ready business cases with financial modeling",
+      "source_dir": "agents/business-case",
+      "runtime_file": ".claude/agents/business-case.md",
+      "status": "active"
+    },
+    {
+      "name": "prd-writer",
+      "display_name": "PRD Writer",
+      "description": "Creates and updates Product Requirements Documents",
+      "source_dir": "agents/prd-writer",
+      "runtime_file": ".claude/agents/prd-writer.md",
+      "status": "active"
+    },
+    {
+      "name": "agent-improver",
+      "display_name": "Agent Improver",
+      "description": "Self-improvement agent - proposes and applies changes to other agents",
+      "source_dir": "agents/agent-improver",
+      "runtime_file": ".claude/agents/agent-improver.md",
+      "status": "active"
+    }
+  ],
+  "shared_files": [
+    "shared/user-setup.md",
+    "shared/rithum-context.md",
+    "shared/jira-integration.md",
+    "shared/notion-integration.md",
+    "shared/tone-and-style.md",
+    "shared/platforms.md"
+  ]
+}

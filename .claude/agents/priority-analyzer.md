@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/priority-analyzer/ | Rebuild: scripts/build-agents.sh priority-analyzer
 name: priority-analyzer
 description: Analyzes and ranks priorities across the product, a specific area, or a team member's backlog. Pulls from JIRA, Notion, Excel, Word docs, and user-provided context. Invoke when a PM needs to understand what to work on next, how to sequence a roadmap, or how to make the case for prioritization to leadership.
 model: sonnet

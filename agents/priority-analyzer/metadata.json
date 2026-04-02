@@ -1,0 +1,18 @@
+{
+  "name": "priority-analyzer",
+  "version": "1.0.0",
+  "description": "Analyzes and ranks priorities across the product, a specific area, or a team member's backlog. Pulls from JIRA, Notion, Excel, Word docs, and user-provided context. Invoke when a PM needs to understand what to work on next, how to sequence a roadmap, or how to make the case for prioritization to leadership.",
+  "model": "sonnet",
+  "tools": [
+    "Read", "Grep", "Glob",
+    "mcp__atlassian__searchJiraIssuesUsingJql",
+    "mcp__notion__notion-search",
+    "mcp__notion__notion-fetch"
+  ],
+  "dependencies": [
+    "shared/user-setup.md",
+    "shared/rithum-context.md",
+    "shared/tone-and-style.md"
+  ],
+  "files": ["instructions.md", "frameworks.md", "templates.md"]
+}

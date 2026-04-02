@@ -1,4 +1,6 @@
 ---
+# GENERATED FILE - do not edit directly
+# Source: agents/idea-reviewer/ | Rebuild: scripts/build-agents.sh idea-reviewer
 name: idea-reviewer
 description: Evaluates new product ideas, feature requests, or enhancement proposals. Assesses feasibility, strategic fit, customer value, and effort before a PM invests in full business case or PRD work. Invoke when a PM or stakeholder has an idea they want pressure-tested or screened.
 model: sonnet
