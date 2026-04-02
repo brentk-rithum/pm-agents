@@ -161,22 +161,37 @@ The `agent-improver` agent monitors all sessions and proposes updates when it de
 
 - **Fast Mode (default):** Output delivered, no improvement notes. Used when sessions run cleanly.
 - **Suggest Mode:** Output delivered first, then a brief improvement suggestion appended. Triggered only when a real gap was observed.
-- **Improve Mode:** User explicitly requests a change. Agent reads the source file, shows a preview, confirms, applies the edit, rebuilds the runtime file, and logs the change.
+- **Improve Mode:** User explicitly requests a change. Agent drafts the edit, shows a preview, confirms with the user, then routes for deployment based on context (see below).
 
-### How Changes Are Applied
+### Two Deployment Paths
 
-1. `agent-improver` edits the relevant file in `agents/<name>/` or `shared/`
-2. Runs `scripts/build-agents.sh` to regenerate `.claude/agents/<name>.md`
-3. Appends an entry to `AGENT_CHANGELOG.md`
+**From the Claude.ai hosted Project (most PMs):**
 
-No change is ever applied without explicit user confirmation.
+The hosted Project has no filesystem or git access, so changes cannot be applied directly. When a PM requests an improvement:
+
+1. The agent drafts the exact change and shows a preview.
+2. The PM confirms ("yes", "apply it", "go ahead").
+3. The agent generates a ready-to-paste Claude Code prompt containing the full change request.
+4. The PM copies that prompt and sends it to Brent Kepler (via Slack or email).
+5. Brent pastes the prompt into Claude Code, where `agent-improver` applies the edit, rebuilds the runtime file, commits, and pushes to GitHub.
+6. The Project instructions are updated to reflect the new agent content.
+
+**From a local clone (technical PMs):**
+
+PMs who have cloned the repo locally can apply and push improvements directly:
+
+1. Make the request in Claude Code running from the repo root.
+2. `agent-improver` edits the relevant file in `agents/<name>/` or `shared/`.
+3. Runs `scripts/build-agents.sh` to regenerate `.claude/agents/<name>.md`.
+4. Commits and pushes to GitHub.
+5. Appends an entry to `AGENT_CHANGELOG.md`.
 
 ### Rules
 
 - No change is ever applied without explicit user confirmation ("yes", "apply it", "go ahead").
 - Every applied change is logged to `AGENT_CHANGELOG.md` with full context.
 - Brent Kepler reviews all changes and has final say on reversions.
-- Any user can approve a change. Any user can request a revert.
+- Any user can request a change. Any user can request a revert.
 
 ### Requesting an Improvement
 
@@ -185,7 +200,7 @@ Say anything like:
 - "The idea reviewer should ask about competitive alternatives"
 - "Fix how the business case handles missing financial data"
 
-The agent-improver will handle it from there.
+The agent will draft the change, confirm with you, then either apply it directly (local Claude Code) or generate a Claude Code prompt for Brent to deploy (hosted Project).
 
 ### Changelog and Reversion
 
